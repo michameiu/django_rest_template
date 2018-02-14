@@ -1,0 +1,25 @@
+{
+  "project_name":"rest_normal_api",
+  "smtp_server":"smtp.webfaction.com",
+  "smtp_username":"micha",
+  "smtp_password":"",
+  "smtp_port":465,
+  "db_engine":"django.db.backends.postgresql_psycopg2",
+  "db_host":"",
+  "db_name":"",
+  "db_user":"",
+  "db_password":"",
+  "db_port":"465",
+  "redis_uri":"",
+  "redis_port":"",
+  "azure_account_name":"",
+  "azure_accout_key":"",
+  "azure_container":"",
+  "timezone":"Africa/Nairobi",
+  "social_auth_google_plus_key":"",
+  "social_auth_google_plus_secret":"",
+  "social_auth_google_aouth2_key":"{{cookiecutter.social_auth_google_plus_key}}",
+  "social_auth_google_aouth2_secret":"{{cookiecutter.social_auth_google_plus_secret}}",
+  "page_size":100
+
+}

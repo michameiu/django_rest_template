@@ -1,0 +1,2 @@
+{{cookiecutter.project_name}}/settings/local.py
+db.sqlite3
