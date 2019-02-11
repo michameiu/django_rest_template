@@ -9,8 +9,8 @@ DATABASES = {
         'NAME': '',        # Or path to database file if using sqlite3.
         'USER': '',                   # Not used with sqlite3.
         'PASSWORD': '',            # Not used with sqlite3.
-        'HOST': '',             # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '5432',                  # Set to empty string for default. Not used with sqlite3.
+        'HOST': '5432',             # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '465',                  # Set to empty string for default. Not used with sqlite3.
     }
 }
 # pg_dump -U nzmewqyrvjyhpl -h ec2-107-22-173-160.compute-1.amazonaws.com dcoimmfelmkfbc > winda_backup

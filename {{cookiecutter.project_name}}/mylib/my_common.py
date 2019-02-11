@@ -73,7 +73,7 @@ class MyDjangoFilterBackend(DjangoFilterBackend):
 
         class Meta:
             model = model_class
-            exclude = ('file', 'image')  # [f.name for f in model_class.fields if  f.name in ["logo","image","file"]]
+            exclude = ('file', 'image','password')  # [f.name for f in model_class.fields if  f.name in ["logo","image","file"]]
             fields = ("__all__")
 
         attrs = {"Meta": Meta,

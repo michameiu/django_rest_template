@@ -33,25 +33,12 @@ from rest_framework import generics
 from {{cookiecutter.project_name}}.settings import MY_SITE_URL
 
 
-def Email(client):
-    print("sending email")
-    rendered = render_to_string('email.html', {"user": client.name})
-    ema = send_mail(
-        subject='Welcome to Stream',
-        message="",
-        html_message=rendered,
-        from_email='Stream Team <room@katanawebworld.com>',
-        recipient_list=[client.username],
-        fail_silently=False,
-        # reply_to="room@katanawebworld.com"
-    )
-
 
 class CreateListUser(generics.ListCreateAPIView):
     serializer_class = MyUserSerializer
     queryset = MyUser.objects.all()
-    filter_backends = (DjangoFilterBackend,)
-    filter_class=UsersFilter
+    filter_backends = (MyDjangoFilterBackend,)
+    # filter_class=UsersFilter
 
     def perform_create(self, serializer):
         serializer.save(old_password=serializer.initial_data.get("password"),confirm_code = randint(111111, 999999))

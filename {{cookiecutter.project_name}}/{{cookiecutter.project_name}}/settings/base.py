@@ -152,6 +152,9 @@ IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = 'imagekit.cachefiles.strategies.Optimistic
 
 
 
+AUTH_USER_MODEL = 'client.MyUser'
+
+
 DEFAULT_FROM_EMAIL = '{{cookiecutter.default_from_email}}'
 
 # Password validation
@@ -172,13 +175,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Extra places for collectstatic to find static files.
-EMAIL_USE_SSL = True
-EMAIL_HOST="smtp.webfaction.com"
-EMAIL_HOST_USER="micha"
-EMAIL_HOST_PASSWORD="0727290364"
-EMAIL_PORT = 465
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
