@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import sys
-reload(sys)
-sys.setdefaultencoding("ISO-8859-1")
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9ecu401swjo744nu^0ai*c-za$8$o1$)9gt8f)ip^$tsdkscjm'
+SECRET_KEY = '{{cookiecutter.secret_key}}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,6 +30,21 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*',]
 
+
+
+##Logging user activity
+ACTIVATE_LOGS=False
+LOG_AUTHENTICATED_USERS_ONLY=False
+
+
+####One signal push notifications
+ONESIGNAL_APP_ID=""
+ONESIGNAL_BASIC_AUTH_KEY="Basic "
+
+MY_SITE_URL=""
+
+IP_ADDRESS_HEADERS = ('HTTP_X_REAL_IP', 'HTTP_CLIENT_IP',
+                      'HTTP_X_FORWARDED_FOR', 'REMOTE_ADDR')
 
 # Application definition
 
@@ -65,6 +77,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'client.middleware.UserLoggerMiddleware',
 ]
 
 ROOT_URLCONF = '{{cookiecutter.project_name}}.urls'
@@ -77,8 +90,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     ),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': {{cookiecutter.page_size}}
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100
 
 }
 
@@ -103,16 +116,16 @@ AUTHENTICATION_BACKENDS = (
     # Django
     'django.contrib.auth.backends.ModelBackend',
 )
-SOCIAL_AUTH_GOOGLE_PLUS_KEY = '{{cookiecutter.social_auth_google_plus_key}}'
-SOCIAL_AUTH_GOOGLE_PLUS_SECRET = '{{cookiecutter.social_auth_google_plus_secret}}'
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '{{cookiecutter.social_auth_google_aouth2_key}}'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '{{cookiecutter.social_auth_google_aouth2_secret}}'
+SOCIAL_AUTH_GOOGLE_PLUS_KEY = ''
+SOCIAL_AUTH_GOOGLE_PLUS_SECRET = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,"..", 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,7 +148,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = 'imagekit.cachefiles.strategies.Optimistic'
 
+
+
+DEFAULT_FROM_EMAIL = '{{cookiecutter.default_from_email}}'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -156,12 +173,19 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Extra places for collectstatic to find static files.
+EMAIL_USE_SSL = True
+EMAIL_HOST="smtp.webfaction.com"
+EMAIL_HOST_USER="micha"
+EMAIL_HOST_PASSWORD="0727290364"
+EMAIL_PORT = 465
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = '{{cookiecutter.timezone}}'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -179,9 +203,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'uploads')
 MEDIA_URL="/media/"
 
-DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-# DROPBOX_OAUTH2_TOKEN="3VjBm6r5ZtAAAAAAAAACuAqEYkiqxz6pjhVyWyvgqRR7mq8zj4JAXjSbloQrl08U"
-# DROPBOX_ROOT_PATH="rayah/"
-AZURE_ACCOUNT_NAME="{{cookiecutter.azure_account_name}}"
-AZURE_ACCOUNT_KEY="{{cookiecutter.azure_accout_key}}"
-AZURE_CONTAINER="{{cookiecutter.azure_container}}"
+###Errors list
+
+
+

@@ -5,12 +5,12 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 DATABASES = {
      'default': {
-        'ENGINE': '{{cookiecutter.db_engine}}', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '{{cookiecutter.db_name}}',        # Or path to database file if using sqlite3.
-        'USER': '{{cookiecutter.db_user}}',                   # Not used with sqlite3.
-        'PASSWORD': '{{cookiecutter.db_password}}',            # Not used with sqlite3.
-        'HOST': '{{cookiecutter.db_host}}',             # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '{{cookiecutter.db_port}}',                  # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '',        # Or path to database file if using sqlite3.
+        'USER': '',                   # Not used with sqlite3.
+        'PASSWORD': '',            # Not used with sqlite3.
+        'HOST': '',             # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '5432',                  # Set to empty string for default. Not used with sqlite3.
     }
 }
 # pg_dump -U nzmewqyrvjyhpl -h ec2-107-22-173-160.compute-1.amazonaws.com dcoimmfelmkfbc > winda_backup
@@ -31,10 +31,10 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 EMAIL_USE_SSL = True
-EMAIL_HOST="{{cookiecutter.smtp_server}}"
-EMAIL_HOST_USER="{{cookiecutter.smtp_username}}"
-EMAIL_HOST_PASSWORD="{{cookiecutter.smtp_password}}"
-EMAIL_PORT = {{cookiecutter.smtp_port}}
+EMAIL_HOST="smtp.webfaction.com"
+EMAIL_HOST_USER="micha"
+EMAIL_HOST_PASSWORD="0727290364"
+EMAIL_PORT = 465
 
 
 

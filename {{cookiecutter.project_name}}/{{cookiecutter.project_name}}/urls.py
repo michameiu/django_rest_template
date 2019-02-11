@@ -20,7 +20,7 @@ from django.contrib import admin
 urlpatternsv1=[
     # url(r'^clients/',include('client.urlsV1')),
     # url(r'^games/',include('game.urlsV1')),
-    url(r'^users/',include('client.urlsv1')),
+    url(r'^users/', include('client.urlsv1')),
 ]
 
 
@@ -32,6 +32,7 @@ apiversionsurlsparterns=[
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/', include(apiversionsurlsparterns)),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^auth/', include('rest_framework_social_oauth2.urls')),
 

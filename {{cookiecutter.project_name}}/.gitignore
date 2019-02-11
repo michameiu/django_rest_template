@@ -1,0 +1,5 @@
+db.sqlite3
+{{cookiecutter.project_name}}/settings/local.py
+{{cookiecutter.project_name}}/settings/local.pyc
+*.pyc
+.idea/

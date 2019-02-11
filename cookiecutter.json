@@ -1,3 +1,4 @@
+
 {
   "project_name":"rest_normal_api",
   "smtp_server":"smtp.webfaction.com",
@@ -20,6 +21,7 @@
   "social_auth_google_plus_secret":"",
   "social_auth_google_aouth2_key":"{{cookiecutter.social_auth_google_plus_key}}",
   "social_auth_google_aouth2_secret":"{{cookiecutter.social_auth_google_plus_secret}}",
-  "page_size":100
-
+  "page_size":100,
+  "secret_key":"9ecu401swjo744nu^0ai*c-za$8$o1$)9gt8f)ip^$tsdkscjm",
+  "default_from_email":"Stream Team <info@stream-mis.com>"
 }
