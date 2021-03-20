@@ -107,7 +107,7 @@ ipaddress==1.0.18
 isodate==0.6.0
 itypes==1.1.0
 jdcal==1.4
-Jinja2==2.10
+Jinja2==2.11.3
 jmespath==0.9.3
 jsonpickle==1.0
 jsonpointer==1.14
